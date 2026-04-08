@@ -1,8 +1,10 @@
 import { useState, useCallback } from 'react'
 
+const API = import.meta.env.VITE_API_URL || ''
+
 async function playTTS(text) {
   try {
-    const response = await fetch('/tts', {
+    const response = await fetch(`${API}/tts`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: text }),
@@ -29,7 +31,7 @@ export function useChat() {
     let fullResponse = ''
 
     try {
-      const response = await fetch('/chat', {
+      const response = await fetch(`${API}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text }),
@@ -77,7 +79,7 @@ export function useChat() {
   }, [])
 
   const clearMessages = useCallback(async () => {
-    await fetch('/memory', { method: 'DELETE' })
+    await fetch(`${API}/memory`, { method: 'DELETE' })
     setMessages([])
   }, [])
 
