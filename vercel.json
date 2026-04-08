@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/chat", "destination": "https://fooz-ai.onrender.com/chat" },
+    { "source": "/memory", "destination": "https://fooz-ai.onrender.com/memory" },
+    { "source": "/tts", "destination": "https://fooz-ai.onrender.com/tts" },
+    { "source": "/health", "destination": "https://fooz-ai.onrender.com/health" }
+  ]
+}
